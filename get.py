@@ -1,6 +1,7 @@
 from fastapi import FastAPI
 
 app = FastAPI()
+# Use get when u  want to retrieve data from api
 
 
 @app.get("/")
