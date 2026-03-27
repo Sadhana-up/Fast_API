@@ -12,7 +12,7 @@ class UserOutResponse(BaseModel):
     username: str
 
 
-class UserInUpdate(BaseModel): 
+class UserInUpdate(BaseModel):  ## user login 
     id: int
     email:Union[EmailStr, None] = None
     username: Union[str, None] = None

@@ -17,5 +17,5 @@ app.include_router(router=auth_router,tags=["auth"], prefix="/auth")
 @app.get("/health")
 def health_check():
 
-    return {"status": "ok"}
+    return {"status": "ok done !!!"}
 
