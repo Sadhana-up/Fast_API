@@ -10,6 +10,8 @@ SessionLocal = sessionmaker(autocommit=False,
                              bind=engine) ## do mot commit automaticaly 
 #autoflush : changes are not directly flushed without any need 
 #bind : hamro main component is to bind 
+# binded to the engine
+
 
 
 Base = declarative_base() ## to create tables base is needed 
