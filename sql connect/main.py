@@ -14,7 +14,7 @@ logger = logging.getLogger(__name__)
 async def lifespan(_app: FastAPI):
     # Do not crash startup if DB credentials are invalid.
     try:
-        models.Base.metadata.create_all(bind=engine)
+        models.Base.metadata.create_all(bind=engine) # use all tables registered and make them in mysql
     except Exception as exc:
         logger.exception("Database initialization failed: %s", exc)
     yield
