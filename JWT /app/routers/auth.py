@@ -14,3 +14,7 @@ def login(loginDetails: UserInLogin):
 @auth_router.post("/signup")
 def signup(signupDetails: UserInCreate):
     return {"message": "User signed up successfully"}
+
+
+# router -> service -> repository -> database ## repo communicates with the database and service communicates with the repo and router communicates with the service
+#router <- service <- repository <- database
