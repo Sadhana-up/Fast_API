@@ -1,21 +1,14 @@
 from fastapi import FastAPI
-from contextlib import asynccontextmanager
-from app.util.init_db import create_tables
-from app.routers.auth import auth_router
+from starlette.middleware.sessions import SessionMiddleware
+from routers.auth import router
+from config import SECRET_KEY
 
-@asynccontextmanager
-async def lifespan(app: FastAPI):
-    print("created")
-    create_tables()
-    yield
+app = FastAPI()
 
-app = FastAPI(lifespan=lifespan)
+app.add_middleware( ## request comes here first and then goes to router
+    SessionMiddleware,
+    secret_key=SECRET_KEY
+)
 
-app.include_router(router=auth_router,tags=["auth"], prefix="/auth")
-
-
-@app.get("/health")
-def health_check():
-
-    return {"status": "ok done !!!"}
+app.include_router(router)
 
